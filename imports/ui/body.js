@@ -3,6 +3,8 @@ import { my_messages } from '../api/messages.js';
 
 import './body.html';
 
+
+
 Template.body.helpers({
     messages(){
         return my_messages.find({});
@@ -32,8 +34,16 @@ Template.body.events({
    
 });
  
-
-Meteor.startup(function() {
-    $( "scroll_div" ).scrollTop( 300 );
-
+ Template.input.events({
+  'keydown #text_area'(event){
+    if (event.keyCode == 13) {
+        $("#butt").click()
+        return false;
+     }
+  }
 });
+
+Template.message.rendered = function () {
+    $( "#scroll_div" ).scrollTop(  20000 );
+};
+

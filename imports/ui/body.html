@@ -4,16 +4,16 @@
 
 <body>
     <div class="row">
-        <div class="col-sm-3" style="background-color:lavender;">
+        <div class="col-sm-2" style="background-color:lavender;">
             
         </div>
-        <div class="col-sm-6" style="background-color:lavenderblush;">
+        <div class="col-sm-8" style="background-color:lavenderblush;">
             <h1>Chat App</h1>
            
                 <div align="center">
                     {{>loginButtons}}
                 </div>
-            <div id="scroll_div" >
+            <div id="scroll_div" class="scrollToTop" >
                 {{>welcome}}
    
                 {{#each messages}}
@@ -29,7 +29,7 @@
                 {{/if}}
                
         </div>
-                <div class="col-sm-3" style="background-color:lavenderblush;">
+                <div class="col-sm-2" style="background-color:lavenderblush;">
                     
                 </div>
  </div>
@@ -48,7 +48,7 @@
 <template name="input">
     <div id="input_element" align="center">
         <form class="add-message">
-            <textarea type="text" rows="4" cols="63" id="text_area" placeholder="Type Messages :"></textarea>
+            <textarea type="text" rows="4" cols="90" id="text_area" placeholder="Type Messages :"></textarea>
             <button id="butt" type="button" class="btn btn-success" >Send</button>
         </form>
     </div>
