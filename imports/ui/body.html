@@ -1,0 +1,55 @@
+<head>
+    <title>Meteor Chat App</title>
+</head>
+
+<body>
+    <div class="row">
+        <div class="col-sm-3" style="background-color:lavender;">
+            
+        </div>
+        <div class="col-sm-6" style="background-color:lavenderblush;">
+            <h1>Chat App</h1>
+           
+                <div align="center">
+                    {{>loginButtons}}
+                </div>
+            <div id="scroll_div" >
+                {{>welcome}}
+   
+                {{#each messages}}
+                    {{> message}}
+                {{/each}}
+   
+    
+                </div>
+                {{#if currentUser}}
+                {{>input}}
+                {{else}}
+                    <h3 style="text-align:center">Please, Log in ...</h3>
+                {{/if}}
+               
+        </div>
+                <div class="col-sm-3" style="background-color:lavenderblush;">
+                    
+                </div>
+ </div>
+    
+    
+</body>
+
+<template name="welcome">
+    <p> let's chat</p>
+</template>
+
+<template name="message">
+  {{time}} - <strong>  {{username}} : </strong>{{message}}<br>
+</template>
+
+<template name="input">
+    <div id="input_element" align="center">
+        <form class="add-message">
+            <textarea type="text" rows="4" cols="63" id="text_area" placeholder="Type Messages :"></textarea>
+            <button id="butt" type="button" class="btn btn-success" >Send</button>
+        </form>
+    </div>
+</template>
