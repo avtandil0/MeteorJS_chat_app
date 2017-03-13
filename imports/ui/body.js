@@ -1,8 +1,12 @@
 import { Template } from 'meteor/templating';
 import { my_messages } from '../api/messages.js';
 
+
 import './body.html';
 
+Template.body.onCreated(function bodyOnCreated() {
+    Meteor.subscribe('chat_Room');
+});
 
 
 Template.body.helpers({
@@ -16,19 +20,7 @@ Template.body.events({
         event.preventDefault();
         var target=document.getElementById("text_area");
         const message = target.value;
-        var d = new Date();
-        var h = d.getHours();
-        var m = d.getMinutes();
-        var s = d.getSeconds();
-        var full_time = h+":"+m+":"+s;
-        my_messages.insert({
-            name,
-            message,
-            time: full_time,
-            owner: Meteor.userId(),
-            username: Meteor.user().username,
-        });
-        console.log(Meteor.user().mail);
+        Meteor.call('chat_Room.insert',message);
         target.value='';
      },
    
@@ -37,7 +29,7 @@ Template.body.events({
  Template.input.events({
   'keydown #text_area'(event){
     if (event.keyCode == 13) {
-        $("#butt").click()
+        $("#butt").click();
         return false;
      }
   }

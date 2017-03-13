@@ -5,7 +5,15 @@
 <body>
     <div class="row">
         <div class="col-sm-2" style="background-color:lavender;">
-            
+            <div class="navbar navbar-inverse navbar-fixed-left">
+                <a class="navbar-brand" href="#">Brand</a>
+                <ul class="nav navbar-nav">
+                
+                    <li><a href="#">Link2</a></li>
+                    <li><a href="#">Link3</a></li>
+   
+                </ul>
+             </div>
         </div>
         <div class="col-sm-8" style="background-color:lavenderblush;">
             <h1>Chat App</h1>
@@ -42,7 +50,7 @@
 </template>
 
 <template name="message">
-  {{time}} - <strong>  {{username}} : </strong>{{message}}<br>
+  {{time}} - <strong>  {{username}} : </strong>{{text}}<br>
 </template>
 
 <template name="input">
