@@ -11,6 +11,9 @@ if (Meteor.isServer) {
   Meteor.publish('chat_Room', function tasksPublication() {
       return my_messages.find();
   });
+  Meteor.publish("userStatus", function() {
+      return Meteor.users.find({ "status.online": true });
+});
 }
 
 

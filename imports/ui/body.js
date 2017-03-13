@@ -6,6 +6,7 @@ import './body.html';
 
 Template.body.onCreated(function bodyOnCreated() {
     Meteor.subscribe('chat_Room');
+    Meteor.subscribe('userStatus')
 });
 
 
@@ -13,6 +14,12 @@ Template.body.helpers({
     messages(){
         return my_messages.find({});
     },
+    onlineUser(){
+        return Meteor.users.find({ _id: {$ne: Meteor.userId()}});   
+    },
+    onlineUserCount(){
+        return Meteor.users.find({ _id: {$ne: Meteor.userId()}}).count();
+    }
 });
 
 Template.body.events({
